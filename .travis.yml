@@ -16,4 +16,15 @@ before_script:
 
 script:
   - ng lint
-  - ng build --prod
+  - npm run test-headless
+  - npm e2e
+  - ng build --prod --base-href https://ibrahim-sobhy.github.io/hadeeth
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  local_dir: dist/hadeeth
+  on:
+    branch: master
+
