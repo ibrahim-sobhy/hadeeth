@@ -24,7 +24,7 @@ deploy:
   provider: pages
   skip_cleanup: true
   github_token: $GITHUB_TOKEN
-  local_dir: dist/hadeeth
+  local_dir: dist/web
   on:
     branch: master
 
