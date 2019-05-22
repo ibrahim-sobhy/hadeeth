@@ -1,12 +1,11 @@
-import { HadeethViewPage } from "./hadeeth-view.po";
+import { HadeethViewPage } from './hadeeth-view.po';
 
 describe('Show the hadeeth view page', () => {
     let page: HadeethViewPage;
 
-    beforeEach(function() {
+    beforeEach( () => {
         page = new HadeethViewPage();
     });
-    
 
     it('show source of hadeeth as Muhamed', () => {
         page.navigateTo();
@@ -17,5 +16,4 @@ describe('Show the hadeeth view page', () => {
         page.navigateTo();
         expect(page.getHadeethTellers()).toEqual('Single');
     });
-    
 });
