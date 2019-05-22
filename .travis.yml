@@ -9,9 +9,9 @@ branches:
   - master
 
 before_script:
+  - cd web
   - npm install -g @angular/cli
 
 script:
-  - cd web
   - ng lint
   - ng build --prod
