@@ -1,30 +1,31 @@
-language: node_js
-node_js:
-  - "10.10.0"
-dist: trusty
-sudo: required
+matrix:
+  include:
+    - language: node_js
+      node_js:
+        - "10.10.0"
+      dist: trusty
+      sudo: required
 
-branches:
-  only:
-  - master
+      branches:
+        only:
+        - master
 
-before_script:
-  - cd web
-  - npm install -g @angular/cli
-  - npm install
+      before_script:
+        - cd web
+        - npm install -g @angular/cli
+        - npm install
 
+      script:
+        - ng lint
+        - npm run test-headless
+        # - ng e2e
+        - ng build --prod
 
-script:
-  - ng lint
-  - npm run test-headless
-  # - ng e2e
-  - ng build --prod
-
-deploy:
-  provider: pages
-  skip_cleanup: true
-  github_token: $GITHUB_TOKEN
-  local_dir: web/dist/web
-  on:
-    branch: master
+      deploy:
+        provider: pages
+        skip_cleanup: true
+        github_token: $GITHUB_TOKEN
+        local_dir: web/dist/web
+        on:
+          branch: master
 
