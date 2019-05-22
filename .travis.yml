@@ -18,7 +18,7 @@ script:
   - ng lint
   - npm run test-headless
   # - ng e2e
-  - ng build --prod --base-href https://ibrahim-sobhy.github.io/hadeeth
+  - ng build --prod
 
 deploy:
   provider: pages
