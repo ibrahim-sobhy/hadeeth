@@ -39,11 +39,12 @@ matrix:
         only:
         - master
 
-      before_script:
+      install:
         - cd api
         - npm install -g serverless
         - npm install
 
       script:
         - serverless deploy
+        # - npm run acceptance-test
 
